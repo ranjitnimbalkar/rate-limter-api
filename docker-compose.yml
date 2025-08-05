@@ -1,0 +1,14 @@
+services:
+  spring-app:
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+
+  nginx-gateway:
+    build:
+      context: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - spring-app
